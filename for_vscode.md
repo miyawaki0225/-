@@ -91,7 +91,7 @@ Docker version 20.10.12, build e91ed57
 wsl2は、自動起動設定が出来ない。
 本来は`service`コマンドでDocker起動が必要
 
-ユーザでパスワード無しで起動できるようにsudoに設定
+#### ユーザでパスワード無しで起動できるようにsudoに設定
 ```console
 $ sudo visudo
 # docker deamon auto up
@@ -107,7 +107,7 @@ $ service docker status
  * Docker is running
 ```
 
-.bashrcにdockerが起動していないときだけ、スタートさせるように追記
+#### .bashrcにdockerが起動していないときだけ、スタートさせるように追記
 ```console
 $vim .bashrc
 #追記
