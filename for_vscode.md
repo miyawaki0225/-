@@ -1,7 +1,7 @@
 # 社内システム用環境構築方法（VSCode利用）
 
-[docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja)
-
+[docker2ubuntu20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja)
+[docker2ubuntu22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)
 ### 流れ
 windows版  
 
@@ -46,6 +46,37 @@ $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ub
 取得:2 https://download.docker.com/linux/ubuntu focal InRelease [57.7 kB]
 ヒット:3 http://jp.archive.ubuntu.com/ubuntu focal-updates InRelease
 ```
+
+First, update your existing list of packages:
+```console
+sudo apt update
+```
+Next, install a few prerequisite packages which let apt use packages over HTTPS:
+
+```console
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+Then add the GPG key for the official Docker repository to your system:
+
+```console
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+Add the Docker repository to APT sources:
+```console
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+Update your existing list of packages again for the addition to be recognized:
+
+```console
+sudo apt update
+```
+
+Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
+```console
+apt-cache policy docker-ce
+```
+
 
 #### 4. Docker Engine一式をインストール
 ```console
