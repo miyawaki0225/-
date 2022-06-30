@@ -69,12 +69,12 @@ $ sudo gpasswd -a ユーザ名 docker
 Adding user ユーザ名 to group docker
 ```
 
-#### ログオフする
+#### 6. ログオフする
 ```console
 exit
 ```
 
-#### Dockerのバージョン確認
+#### 7. Dockerのバージョン確認
 ```console
 $ docker -v
 Docker version 20.10.12, build e91ed57
