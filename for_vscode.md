@@ -1,5 +1,7 @@
 # 社内システム用環境構築方法（VSCode利用）
 
+[docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja)
+
 ### 流れ
 windows版  
 
@@ -8,6 +10,7 @@ windows版
 - JDKをUbuntuにインストール
 - VSCodeインストール
 - dockerをインストールしてDB構築
+- docekrの自動起動設定
 
 
 ※ハマったポイント
@@ -82,4 +85,90 @@ exit
 $ docker -v
 
 Docker version 20.10.12, build e91ed57
+```
+
+### wsl2でDocker自動起動設定
+wsl2は、自動起動設定が出来ない。
+本来は`service`コマンドでDocker起動が必要
+
+ユーザでパスワード無しで起動できるようにsudoに設定
+```console
+$ sudo visudo
+# docker deamon auto up
+ユーザ ALL=(ALL:ALL) NOPASSWD: /usr/sbin/service docker start
+```
+
+```console
+停止時
+$ service docker status
+ * Docker is not running
+起動時
+$ service docker status
+ * Docker is running
+```
+
+.bashrcにdockerが起動していないときだけ、スタートさせるように追記
+```console
+$vim .bashrc
+#追記
+echo $(service docker status | awk '{print $4}') #起動状態を表示
+if test $(service docker status | awk '{print $4}') = 'not'; then #停止状態
+        sudo /usr/sbin/service docker start #起動
+fi
+```
+この設定で、wsl2に入るときに、Dockerが停止していたら起動するようになりました。
+
+#### ※発生するトラブル（wsl特有？）
+dockerの自動起動に対するエラー
+- 上記の自動起動メニューは実行するがdockerは起動しない
+- 理由：systemctlのプロセスIDを1にしていない
+
+```console
+System has not been booted with systemd as init system (PID 1).
+```
+
+### genieのインストール（準備）
+```console
+#必要なパッケージのインストール１
+sudo apt install daemonize dbus gawk libc6 libstdc++6 policykit-1 systemd systemd-container
+#必要なパッケージのインストール２
+wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+```
+
+### パッケージの最新版を取得、更新
+```console
+sudo apt update
+sudo apt upgrade
+```
+
+### dotnet-runtime-5.0をインストール
+```console
+sudo apt install dotnet-runtime-5.0
+```
+
+### genieのインストール
+```console
+sudo apt install apt-transport-https
+
+wget -O /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg
+
+sudo chmod a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg
+```
+
+### rootユーザーで実施。入力後exit
+```console
+cat << EOF > /etc/apt/sources.list.d/wsl-transdebian.list
+deb https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
+deb-src https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
+EOF
+
+sudo apt update
+sudo apt install systemd-genie
+
+#実行
+genie -l
+#もし「Waiting for systemd....!!!!!!!」で止まるようならCtrl+Cで停止した後で実行
+genie -s
 ```
