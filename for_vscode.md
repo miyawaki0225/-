@@ -47,6 +47,7 @@ $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ub
 ヒット:3 http://jp.archive.ubuntu.com/ubuntu focal-updates InRelease
 ```
 
+#### dockerインストール ＞＞ ubuntu22.04
 First, update your existing list of packages:
 ```console
 sudo apt update
