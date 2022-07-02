@@ -8,10 +8,10 @@ https://qiita.com/iridon0920/items/005a9224343413b74f78
 ### 流れ
 
 - wsl2　
-- Ubuntu 22.04
+- MicrosoftStoreから >>> Ubuntu 22.04
 - VSCodeインストール
   #### Local インストール
-  
+  - remote wsl
   #### WSL:インストール
   - Spring Boot Extension Pack
   - Lombok Annotations Support for VSCODE
