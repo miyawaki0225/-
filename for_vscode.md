@@ -9,7 +9,7 @@ https://qiita.com/iridon0920/items/005a9224343413b74f78
 
 - wsl2　
 - MicrosoftStoreから >>> Ubuntu 22.04
-- VSCodeインストール
+- VSCodeインストール >> リポジトリを複製（クローン）
   #### Local インストール
   - remote wsl
   #### WSL:インストール
