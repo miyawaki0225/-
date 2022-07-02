@@ -63,7 +63,14 @@ sudo apt install openjdk-17-jdk-headless  # version 17.0.3+7-0ubuntu0.22.04.1
 ※　上書き保存＋sourceコマンド実行しないと反映されない。
 ```console
 vim ~/.bashrc
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+```
+```java
+# i     編集モードに入り、書きたいコードを書く
+# esc   編集モード解除
+# :wq   保存して終了
+```
+> export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/bin/java
+```console
 source .bashrc
 ```
 
