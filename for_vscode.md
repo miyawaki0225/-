@@ -35,7 +35,7 @@ https://docs.docker.com/desktop/windows/wsl/
 
 VisualStudioCodeまたはVisualStudioCodeInsiderをインストールします。  
 リモート開発拡張パックをインストールします。  
-
+下記コマンドはvscodeからでOK
 ```console
 cd infra（docker-composeがあるディレクトリに移動）
 docker-compose up -d（コンテナを追加する）
@@ -64,5 +64,5 @@ sudo apt install openjdk-17-jdk-headless  # version 17.0.3+7-0ubuntu0.22.04.1
 トラブル：理解できていなかった点
 1. 社内システムを仮想環境に構築するにあたりVSCODEやDockerをwindows側とwsl側のどちらに入れるか分からない
   1. Windows側：VSCode、Docker Desktop for windows、ブラウザの起動ページ
-  2. wsl側：JDK
+  2. wsl側：JDK、Extension Pack for Java,Spring Boot Extension Pack,Lombok Annotations Support for VS Code
 2. VSCodeを起動するときはDocker Desktopを起動させておかないとVSCodeのdockerが接続できない
