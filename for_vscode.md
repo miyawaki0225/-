@@ -1,6 +1,6 @@
 # 社内システム用環境構築方法（VSCode利用）
 
-[docker2ubuntu20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja)
+[docker2ubuntu20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ja)  
 [docker2ubuntu22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)
  
 
@@ -43,10 +43,10 @@ bash start_db.sh（起動）
 
 注意：社内システムに使われている、javaが古すぎてecripse2022より新しいとエラーが発生する。
 対処方法：ecripseの起動設定をjava11に変更する
-https://techhotoke.hatenablog.com/entry/2021/11/28/113957
-
+https://techhotoke.hatenablog.com/entry/2021/11/28/113957  
 https://docs.docker.com/desktop/windows/wsl/　　
 https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package　　
+https://blog.mori-soft.com/entry/2021/05/12/120821  
 
 ## JDKをインストール
 ```console
