@@ -80,3 +80,26 @@ source .bashrc
   1. Windows側：VSCode、Docker Desktop for windows、ブラウザの起動ページ
   2. wsl側：JDK、Extension Pack for Java,Spring Boot Extension Pack,Lombok Annotations Support for VS Code
 2. VSCodeを起動するときはDocker Desktopを起動させておかないとVSCodeのdockerが接続できない
+
+### Visual Studio Code で 「The Language Support for Java server crashed …」のエラーが発生した時の解決法
+#### 原因
+Visual Studio Code をインストールした環境に、過去のユーザー設定が残っていて、存在しない拡張機能のファイルを読み込もうとしていたことが原因でした。
+
+なぜこんな環境になってしまったのかというと、アンインストールの仕方に問題があったからです。
+私は以下の内容を実施しました。
+
+Visual Studio Code + Java Extension Pack + Lombok Annotations Support for VS Code で開発環境を構築。
+Visual Studio Code 本体をアンインストール。  
+拡張機能のインストールフォルダを削除。  
+（C:\Users\(ユーザー名)\.vscode\extensions のフォルダを削除する。）  
+これだけでは、C:\Users\(ユーザー名)\AppData\Roaming\Code\User フォルダに保存されているユーザー設定(setting.json)は削除されていない為、削除した lombok.jar を参照している設定値が残ったままになってしまい、再インストールした Visual Studio Code がその設定で起動してエラーが発生していました。
+
+#### まとめ
+Language Support for Java(TM) by Red Hat の起動でエラーが発生した時は、ユーザー設定の java.jdt.ls.vmargs の値を確認する。
+また、 Visual Studio Code を完全にアンインストールしたいときは、以下を実施する。  
+  
+Visual Studio Code 本体をアンインストール。  
+拡張機能のインストールフォルダを削除。  
+( C:\Users\(ユーザー名)\.vscode\extensions )  
+ユーザー設定を削除。  
+( C:\Users\(ユーザー名)\AppData\Roaming\Code\User )  
