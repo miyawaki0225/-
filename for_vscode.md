@@ -50,6 +50,11 @@ https://docs.microsoft.com/ja-jp/windows/wsl/install-manual#step-4---download-th
 https://blog.mori-soft.com/entry/2021/05/12/120821  
 
 ## JDKをインストール
+※事前にパッケージリストのアップデート
+```console
+sudo apt-get update
+```
+
 ```console
 Command 'javac' not found, but can be installed with:
 sudo apt install openjdk-11-jdk-headless  # version 11.0.15+10-0ubuntu0.22.04.1, or
