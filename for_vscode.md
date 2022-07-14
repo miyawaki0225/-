@@ -16,8 +16,8 @@ https://qiita.com/iridon0920/items/005a9224343413b74f78
   - Spring Boot Extension Pack
   - Lombok Annotations Support for VSCODE
 - JDKをUbuntuにインストール
-- docker desktop for windowsをインストールしてDB構築
-
+- docker desktop for windowsをインストールしてDB構築  
+- docker desktop のconfig > resources Enable in～をセットする  
 
 ※ハマったポイント
 - VSCodeとUbuntuの連携が上手くいかなかった
