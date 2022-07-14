@@ -53,6 +53,7 @@ https://blog.mori-soft.com/entry/2021/05/12/120821
 ※事前にパッケージリストのアップデート
 ```console
 sudo apt-get update
+apt purge needrestart
 ```
 
 ```console
@@ -67,7 +68,7 @@ sudo apt install openjdk-17-jdk-headless  # version 17.0.3+7-0ubuntu0.22.04.1
 環境変数を設定しておきます。.bachrc の最後に
 ※　上書き保存＋sourceコマンド実行しないと反映されない。
 ```console
-vim ~/.bashrc
+vim .bashrc
 ```
 ```java
 # i     編集モードに入り、書きたいコードを書く
