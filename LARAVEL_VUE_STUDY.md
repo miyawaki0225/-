@@ -14,8 +14,13 @@ phpのパスが通らない時の注意点（.exeファイルが入っていな�
 
 - `docker-compose up`を実行する前に`Docker Desktop`を起動しておく
 
-- yarnコマンドが見つからない
+- yarnコマンドが見つからない（インストールしているのに！？）
   - https://teratail.com/questions/296003
+
+
+```console:npxを先頭につける
+npx yarn install
+```
 
 ### Node.jsのインストール
   - https://nodejs.org/ja/
