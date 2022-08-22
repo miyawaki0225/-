@@ -19,7 +19,12 @@ phpのパスが通らない時の注意点（.exeファイルが入っていな�
 
 
 ```console:npxを先頭につける
+//frontendフォルダに入り、yarnファイルを実行するコマンド
+cd frontend
 npx yarn install
+
+//サーバー実行
+npx yarn serve
 ```
 
 ### Node.jsのインストール
