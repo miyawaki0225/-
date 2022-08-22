@@ -7,3 +7,8 @@ https://github.com/rapide-act/laravel-vue-study
 
 - Node.jsのインストール
   - https://nodejs.org/ja/
+
+```console
+npm install -g npm@8.18.0
+npm install -g yarn
+```
